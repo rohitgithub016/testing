@@ -8,8 +8,6 @@ function App() {
   const [group, setGroup] = useState("https://t.me/+_RiWhOpbYGg2ZDg1");
 
   const handleClick = () => {
-    WebApp?.close();
-
     WebApp.openTelegramLink(group);
     // WebApp?.close();
   };
