@@ -5,6 +5,7 @@ function App() {
   console.log(WebApp);
   const handleClick = () => {
     WebApp.openTelegramLink("https://t.me/+_RiWhOpbYGg2ZDg1");
+    WebApp?.close();
   };
   return (
     <div>
