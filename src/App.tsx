@@ -6,11 +6,15 @@ function App() {
   console.log(WebApp);
 
   const [settings, setSettingsClicked] = useState("not CCLIKED");
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   useEffect(() => {
     (window as any).Telegram?.WebView?.postEvent("web_app_open_tg_link", () => {
       console.log("Hello world");
-      setSettingsClicked("Hello");
+
+      if (buttonClicked) {
+        setSettingsClicked("Hello101010");
+      }
     });
 
     WebApp.onEvent("settingsButtonClicked", () => {
@@ -24,6 +28,7 @@ function App() {
   const [group, setGroup] = useState("https://t.me/+_RiWhOpbYGg2ZDg1");
 
   const handleClick = () => {
+    setButtonClicked(true);
     WebApp.openTelegramLink(group);
     // WebApp?.close();
   };
