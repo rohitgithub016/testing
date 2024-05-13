@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import WebApp from "@twa-dev/sdk";
 
 function App() {
   console.log(WebApp);
+
+  useEffect(() => {
+    (window as any)?.Telegram?.WebApp?.SettingsButton?.hide();
+  }, []);
 
   const [group, setGroup] = useState("https://t.me/+_RiWhOpbYGg2ZDg1");
 
