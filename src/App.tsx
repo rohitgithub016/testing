@@ -5,10 +5,17 @@ import WebApp from "@twa-dev/sdk";
 function App() {
   console.log(WebApp);
 
+  const [settings, setSettingsClicked] = useState("not CCLIKED");
+
   useEffect(() => {
     (window as any).Telegram?.WebApp?.SettingsButton.hide();
 
-    WebApp.SettingsButton.hide();
+    WebApp.onEvent("settingsButtonClicked", () => {
+      console.log("clicked");
+      setSettingsClicked("clicked");
+    });
+
+    WebApp.SettingsButton.show();
   }, []);
 
   const [group, setGroup] = useState("https://t.me/+_RiWhOpbYGg2ZDg1");
@@ -31,6 +38,8 @@ function App() {
       <p>{WebApp?.version}</p>
       <p>{(window as any).Telegram?.WebApp?.version ? "Hello" : "World"}</p>
       <p>{WebApp?.SettingsButton?.isVisible ? "Hello" : "World"} </p>
+      <p>{settings}</p>
+      <p></p>
     </div>
   );
 }
