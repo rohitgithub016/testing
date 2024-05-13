@@ -29,8 +29,8 @@ function App() {
       <input onChange={handleChange} />
       <button onClick={handleClick}>Click Me</button>
       <p>{WebApp?.version}</p>
-      <p>{(window as any).Telegram?.WebApp?.version}</p>
-      <p>{WebApp?.SettingsButton?.isVisible}</p>
+      <p>{(window as any).Telegram?.WebApp?.version ? "Hello" : "World"}</p>
+      <p>{WebApp?.SettingsButton?.isVisible ? "Hello" : "World"} </p>
     </div>
   );
 }
