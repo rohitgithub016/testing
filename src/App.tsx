@@ -12,9 +12,7 @@ function App() {
     (window as any).Telegram?.WebView?.postEvent("web_app_open_tg_link", () => {
       console.log("Hello world");
 
-      if (buttonClicked) {
-        setSettingsClicked("Hello101010");
-      }
+      setSettingsClicked((prev) => prev + "Hello101010");
     });
 
     WebApp.onEvent("settingsButtonClicked", () => {
