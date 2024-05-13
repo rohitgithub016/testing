@@ -6,7 +6,7 @@ function App() {
   console.log(WebApp);
 
   useEffect(() => {
-    (window as any)?.Telegram?.WebApp?.SettingsButton?.hide();
+    WebApp.SettingsButton.hide();
   }, []);
 
   const [group, setGroup] = useState("https://t.me/+_RiWhOpbYGg2ZDg1");
