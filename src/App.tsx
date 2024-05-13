@@ -26,6 +26,8 @@ function App() {
       {(window as any).Telegram?.WebApp?.initDataUnsafe?.user?.username}
       <input onChange={handleChange} />
       <button onClick={handleClick}>Click Me</button>
+      <p>{WebApp?.version}</p>
+      <p>{WebApp?.SettingsButton?.isVisible}</p>
     </div>
   );
 }
