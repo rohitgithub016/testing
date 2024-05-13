@@ -8,7 +8,10 @@ function App() {
   const [settings, setSettingsClicked] = useState("not CCLIKED");
 
   useEffect(() => {
-    (window as any).Telegram?.WebApp?.SettingsButton.hide();
+    (window as any).Telegram?.WebView?.postEvent("web_app_open_tg_link", () => {
+      console.log("Hello world");
+      setSettingsClicked("Hello");
+    });
 
     WebApp.onEvent("settingsButtonClicked", () => {
       console.log("clicked");
