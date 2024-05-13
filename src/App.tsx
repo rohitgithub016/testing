@@ -6,6 +6,8 @@ function App() {
   console.log(WebApp);
 
   useEffect(() => {
+    (window as any).Telegram?.WebApp?.SettingsButton.hide();
+
     WebApp.SettingsButton.hide();
   }, []);
 
@@ -27,6 +29,7 @@ function App() {
       <input onChange={handleChange} />
       <button onClick={handleClick}>Click Me</button>
       <p>{WebApp?.version}</p>
+      <p>{(window as any).Telegram?.WebApp?.version}</p>
       <p>{WebApp?.SettingsButton?.isVisible}</p>
     </div>
   );
