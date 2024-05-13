@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     (window as any).Telegram?.WebView?.postEvent("web_app_open_tg_link", () => {
       console.log("Hello world");
-
+      console.log(buttonClicked);
       setSettingsClicked((prev) => prev + "Hello101010");
     });
 
