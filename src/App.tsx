@@ -1,22 +1,25 @@
 import "./App.css";
-import telegramLogin from "telegram-bot-auth";
+import useTelegramAuth from "@use-telegram-auth/hook";
 
 function App() {
-  const handleClick = async () => {
-    try {
-      const params = {
-        botId: 7023151966, // telergam id of bot
-        botNick: "weekendPrac", // telegram username of bot
-        origin: "https://testing-six-gilt.vercel.app", // domain that is linked to your bot
-        phone: "+917908027118", // phone number to auth
-      };
-      const tgUser = await telegramLogin(params);
-      console.log(tgUser);
-    } catch (error) {
-      console.error("Telegram auth error", error);
+  const BOT_ID = "7023151966";
+
+  const { onAuth } = useTelegramAuth(
+    BOT_ID,
+    {
+      windowFeatures: { popup: true },
+    },
+    {
+      onSuccess: (result) => {
+        console.log(result);
+      },
     }
+  );
+  const hanldeClick = async () => {
+    onAuth();
   };
-  return <button onClick={handleClick}>Click me</button>;
+
+  return <button onClick={hanldeClick}>{"Login"}</button>;
 }
 
 export default App;

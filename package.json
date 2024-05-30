@@ -10,11 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "i": "^0.3.7",
+    "@use-telegram-auth/hook": "^1.0.5",
     "npm": "^10.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "telegram-bot-auth": "^1.0.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
