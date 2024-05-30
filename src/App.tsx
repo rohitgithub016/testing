@@ -11,6 +11,7 @@ function App() {
         phone: "+917908027118", // phone number to auth
       };
       const tgUser = await telegramLogin(params);
+      console.log(tgUser);
     } catch (error) {
       console.error("Telegram auth error", error);
     }
