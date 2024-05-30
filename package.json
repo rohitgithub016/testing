@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@twa-dev/sdk": "^7.0.0",
+    "i": "^0.3.7",
+    "npm": "^10.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "telegram-bot-auth": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
