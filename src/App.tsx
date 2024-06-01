@@ -1,25 +1,24 @@
+import { useEffect, useRef } from "react";
 import "./App.css";
-import useTelegramAuth from "@use-telegram-auth/hook";
 
 function App() {
-  const BOT_ID = "7023151966";
+  const telegramWrapperRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const scriptElement = document.createElement("script");
+    scriptElement.src = "https://telegram.org/js/telegram-widget.js?22";
+    scriptElement.setAttribute("data-telegram-login", "weekendPrac");
+    scriptElement.setAttribute("data-size", "large");
+    scriptElement.setAttribute(
+      "data-auth-url",
+      "https://testing-six-gilt.vercel.app/"
+    );
+    scriptElement.async = true;
 
-  const { onAuth } = useTelegramAuth(
-    BOT_ID,
-    {
-      windowFeatures: { popup: true },
-    },
-    {
-      onSuccess: (result) => {
-        console.log(result);
-      },
-    }
-  );
-  const hanldeClick = async () => {
-    onAuth();
-  };
+    //@ts-ignore
+    telegramWrapperRef.current.appendChild(scriptElement);
+  }, []);
 
-  return <button onClick={hanldeClick}>{"Login"}</button>;
+  return <div ref={telegramWrapperRef}></div>;
 }
 
 export default App;
