@@ -13,13 +13,13 @@ function App() {
       "data-auth-url",
       "https://testing-six-gilt.vercel.app/"
     );
-    scriptElement.async = true;
+    // scriptElement.async = true;
 
-    //@ts-ignore
-    telegramWrapperRef.current.appendChild(scriptElement);
+    // //@ts-ignore
+    // telegramWrapperRef.current.appendChild(scriptElement);
   }, []);
 
-  return <div ref={telegramWrapperRef}></div>;
+  return <div>Hello world</div>;
 }
 
 export default App;
