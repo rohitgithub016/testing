@@ -6,7 +6,7 @@ function App() {
   useEffect(() => {
     const scriptElement = document.createElement("script");
     scriptElement.src = "https://telegram.org/js/telegram-widget.js?22";
-    scriptElement.setAttribute("data-telegram-login", "weekendPrac");
+    scriptElement.setAttribute("data-telegram-login", "localdashboard_bot");
     scriptElement.setAttribute("data-size", "large");
     scriptElement.setAttribute(
       "data-auth-url",
