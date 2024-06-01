@@ -5,8 +5,9 @@ function App() {
   const telegramWrapperRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const scriptElement = document.createElement("script");
-    scriptElement.src = "https://telegram.org/js/telegram-widget.js?22";
-    scriptElement.setAttribute("data-telegram-login", "localdashboard_bot");
+    scriptElement.async = true;
+    scriptElement.src = `https://telegram.org/js/telegram-widget.js?21`;
+    scriptElement.setAttribute("data-telegram-login", "weekendPac_bot");
     scriptElement.setAttribute("data-size", "large");
     scriptElement.setAttribute(
       "data-auth-url",
