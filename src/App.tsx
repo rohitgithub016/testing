@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import "./App.css";
 
 function App() {
+  //@ts-ignore
   const telegramWrapperRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const scriptElement = document.createElement("script");
