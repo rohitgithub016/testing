@@ -26,7 +26,8 @@ function App() {
         src="https://s3-hubz-dashboard-images.s3.ap-southeast-1.amazonaws.com/Desktop+image+dash.svg"
         width={"100%"}
         height={"100%"}
-      ></img>
+      />
+      <img src="src/assets/mockup.png" width={"100%"} height={"100%"} />
     </div>
   );
 }
