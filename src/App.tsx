@@ -20,7 +20,15 @@ function App() {
     // telegramWrapperRef.current.appendChild(scriptElement);
   }, []);
 
-  return <div>Hello world</div>;
+  return (
+    <div>
+      <img
+        src="https://s3-hubz-dashboard-images.s3.ap-southeast-1.amazonaws.com/Desktop+image+dash.svg"
+        width={"100%"}
+        height={"100%"}
+      ></img>
+    </div>
+  );
 }
 
 export default App;
