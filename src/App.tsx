@@ -1,34 +1,25 @@
-import { useEffect, useRef } from "react";
 import "./App.css";
+import {
+  TonConnectButton,
+  useTonAddress,
+  useTonConnectUI,
+} from "@tonconnect/ui-react";
 
 function App() {
-  //@ts-ignore
-  const telegramWrapperRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const scriptElement = document.createElement("script");
-    scriptElement.async = true;
-    scriptElement.src = `https://telegram.org/js/telegram-widget.js?21`;
-    scriptElement.setAttribute("data-telegram-login", "weekendPac_bot");
-    scriptElement.setAttribute("data-size", "large");
-    scriptElement.setAttribute(
-      "data-auth-url",
-      "https://testing-six-gilt.vercel.app/"
-    );
-    // scriptElement.async = true;
+  const userFriendlyAddress = useTonAddress();
+  const rawAddress = useTonAddress(false);
+  const [tonConnectUI] = useTonConnectUI();
 
-    // //@ts-ignore
-    // telegramWrapperRef.current.appendChild(scriptElement);
-  }, []);
-
+  console.log(tonConnectUI);
   return (
-    <div>
-      <img
-        src="https://s3-hubz-dashboard-images.s3.ap-southeast-1.amazonaws.com/Desktop+image+dash.svg"
-        width={"100%"}
-        height={"100%"}
-      />
-      <img src="src/assets/mockup.png" width={"100%"} height={"100%"} />
-    </div>
+    <>
+      <TonConnectButton />
+      <div>
+        <span>User-friendly address: {userFriendlyAddress}</span>
+        <span>Raw address: {rawAddress}</span>
+        <span>{tonConnectUI.connected}</span>
+      </div>
+    </>
   );
 }
 
