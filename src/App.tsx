@@ -22,7 +22,7 @@ function App() {
       </div>
       <div>
         <a href={addBotLink} target="_blank">
-          <button>Add Bot to Group or Channel</button>
+          <button>Add Bot to Groups or Channels</button>
         </a>
       </div>
     </>
