@@ -47,6 +47,7 @@ function App() {
               fontFamily: "Scandia-Medium",
               margin: 0,
               textAlign: "left",
+              fontWeight: 500,
             }}
           >
             Take Your Chats Onchain
@@ -90,6 +91,7 @@ function App() {
                       margin: 0,
                       lineHeight: "normal",
                       textAlign: "left",
+                      fontWeight: 500,
                     }}
                   >
                     {step}
