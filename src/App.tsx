@@ -46,6 +46,7 @@ function App() {
               fontSize: "24px",
               fontFamily: "Scandia-Medium",
               margin: 0,
+              textAlign: "left",
             }}
           >
             Take Your Chats Onchain
