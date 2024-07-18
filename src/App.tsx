@@ -58,6 +58,7 @@ function App() {
               fontWeight: 400,
               color: "#525260",
               textAlign: "left",
+              fontFamily: "Scandia-Regular",
             }}
           >
             From Web2 to Web3: revolutionize your chats with Hubz
@@ -101,6 +102,7 @@ function App() {
                       color: "#999",
                       fontSize: 12,
                       fontWeight: 400,
+                      fontFamily: "Scandia-Regular",
                       textAlign: "left",
                     }}
                   >
@@ -111,9 +113,12 @@ function App() {
             </Flex>
           ))}
         </Card>
-        <Card bordered={false}>
+        <Card
+          bordered={false}
+          style={{ display: "flex", justifyContent: "flex-start" }}
+        >
           <Radio>
-            <Typography.Text>
+            <Typography.Text style={{ fontFamily: "Scandia-Regular" }}>
               I accept the <Typography.Link>Terms of Service.</Typography.Link>
             </Typography.Text>
           </Radio>
