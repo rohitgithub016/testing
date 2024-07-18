@@ -55,6 +55,7 @@ function App() {
               fontSize: "16px",
               fontWeight: 400,
               color: "#525260",
+              textAlign: "left",
             }}
           >
             From Web2 to Web3: revolutionize your chats with Hubz
