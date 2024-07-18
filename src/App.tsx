@@ -87,12 +87,18 @@ function App() {
                       fontFamily: "Scandia-Medium",
                       margin: 0,
                       lineHeight: "normal",
+                      textAlign: "left",
                     }}
                   >
                     {step}
                   </Typography.Title>
                   <Typography.Text
-                    style={{ color: "#999", fontSize: 12, fontWeight: 400 }}
+                    style={{
+                      color: "#999",
+                      fontSize: 12,
+                      fontWeight: 400,
+                      textAlign: "left",
+                    }}
                   >
                     {description}
                   </Typography.Text>
