@@ -31,7 +31,7 @@ const VisibilityTracker = () => {
   const startVisibilityCheck = () => {
     const intervalId = setInterval(() => {
       if (!document.hidden) {
-        setIsVisible(prev => [...prev, getVisibility(!document.hidden)]);
+        setIsVisible(prev => [...prev, getVisibility(true)]);
 
         clearInterval(intervalId);
       }
