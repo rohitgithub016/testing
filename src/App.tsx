@@ -10,11 +10,13 @@ const VisibilityTracker = () => {
     WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`)
   }
 
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState("")
+
+  console.log(document?.visibilityState)
 
   useEffect(()=>{
     setInterval(()=>{
-      setValue(value => value + 1)
+      setValue(document?.visibilityState)
     }, 1000)
   },[])
 
