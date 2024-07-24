@@ -38,6 +38,14 @@ const VisibilityTracker = () => {
     }, 1000); // Check every second
   };
 
+
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+
+  }, [isVisible])
+
   return (
     <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
       <button onClick={handleClick}>Click me</button>
