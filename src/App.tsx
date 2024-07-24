@@ -53,9 +53,12 @@ const VisibilityTracker = () => {
     
   }, []);
 
+  console.log(isVisible);
+
   return (
     <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
       {/* {isVisible.map(item => <div>{item}</div>)} */}
+
       <button onClick={handleClick}>Click me</button>
       <div>{value}</div>
     </div>
