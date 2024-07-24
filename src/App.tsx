@@ -1,5 +1,6 @@
 import WebApp from "@twa-dev/sdk";
 
+
 const VisibilityTracker = () => {
   const botUsername = "weekendPac_bot";
   const handleClick = () => {
@@ -37,6 +38,16 @@ const VisibilityTracker = () => {
   })
   WebApp.onEvent("contactRequested", () => {
     console.log("contactRequested");
+  })
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-expect-error
+  console.log(window.Telegram.WebView);
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-expect-error
+  window.Telegram.WebView.postEvent('web_app_open_tg_link', () => {
+    console.log("sadfasdjflasjdf;la")
   })
 
   return (
