@@ -10,13 +10,13 @@ const VisibilityTracker = () => {
     WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`)
   }
 
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState<string[]>([])
 
   console.log(document?.visibilityState)
 
   useEffect(()=>{
     setInterval(()=>{
-      setValue(document?.visibilityState)
+      setValue(prev => [...prev ,document?.visibilityState])
     }, 1000)
   },[])
 
@@ -55,7 +55,7 @@ const VisibilityTracker = () => {
 
   return (
     <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-      {isVisible.map(item => <div>{item}</div>)}
+      {/* {isVisible.map(item => <div>{item}</div>)} */}
       <button onClick={handleClick}>Click me</button>
       <div>{value}</div>
     </div>
