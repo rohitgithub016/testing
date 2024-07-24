@@ -1,8 +1,14 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import WebApp from '@twa-dev/sdk';
 
 const VisibilityTracker = () => {
-  const [isVisible, setIsVisible] = useState(!document.hidden);
+  const getVisibility = (data: boolean) => {
+    if (data) {
+      return "visible"
+    }
+    return "hidden"
+  }
+  const [isVisible, setIsVisible] = useState<string[]>([getVisibility(!document.hidden)]);
   const botUsername = 'weekendPac_bot';
 
   const handleClick = () => {
@@ -11,7 +17,7 @@ const VisibilityTracker = () => {
   };
 
   const handleVisibilityChange = () => {
-    setIsVisible(!document.hidden);
+    setIsVisible(prev => [...prev, getVisibility(!document.hidden)]);
   };
 
   useEffect(() => {
@@ -25,7 +31,8 @@ const VisibilityTracker = () => {
   const startVisibilityCheck = () => {
     const intervalId = setInterval(() => {
       if (!document.hidden) {
-        setIsVisible(true);
+        setIsVisible(prev => [...prev, getVisibility(!document.hidden)]);
+
         clearInterval(intervalId);
       }
     }, 1000); // Check every second
@@ -34,7 +41,7 @@ const VisibilityTracker = () => {
   return (
     <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
       <button onClick={handleClick}>Click me</button>
-      <p>{isVisible ? 'Mini app is visible' : 'Mini app is hidden'}</p>
+      {isVisible?.map(item => <div>{item}</div>)}
     </div>
   );
 };
