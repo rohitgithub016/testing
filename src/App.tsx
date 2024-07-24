@@ -41,16 +41,23 @@ const VisibilityTracker = () => {
     }, 1000); // Check every second
   };
 
+  const [count, setCount] = useState(1);
+  const [todo, setTodo] = useState<string[]>([])
+
 
   useEffect(()=>{
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => {
+        setCount(prev => prev + 1);
+        setTodo(prev => [...prev, `${count}___${json?.title}`])
+      })
   }, [isVisible])
 
   return (
-    <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+    <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', overflow: 'scroll' }}>
       <button onClick={handleClick}>Click me</button>
+      {todo?.map(t=><div>{t}</div>)}
     </div>
   );
 };
