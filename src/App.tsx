@@ -56,6 +56,8 @@ const VisibilityTracker = () => {
   
 
   useEffect(() => {
+  
+    console.log(new Date().toISOString())
     fetch(`https://api-dev.hubz.io/api/v0/group?creatorUsername=rohitbhandari016`, options)
       .then(response => response.json())
       .then(json => {
