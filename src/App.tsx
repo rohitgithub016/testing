@@ -56,15 +56,17 @@ const VisibilityTracker = () => {
   
 
   useEffect(() => {
-  
-    console.log(new Date().toISOString())
-    fetch(`https://api-dev.hubz.io/api/v0/group?creatorUsername=rohitbhandari016`, options)
-      .then(response => response.json())
-      .then(json => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-expect-error
-         setTodo(json.data.map((group) => group?.groupName))
-      })
+    setTimeout(()=>{
+
+      console.log(new Date().toISOString())
+      fetch(`https://api-dev.hubz.io/api/v0/group?creatorUsername=rohitbhandari016`, options)
+        .then(response => response.json())
+        .then(json => {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-expect-error
+           setTodo(json.data.map((group) => group?.groupName))
+        })
+    }, 5000)
   }, [isVisible])
 
   return (
