@@ -1,32 +1,46 @@
-import { useState, useEffect } from 'react';
 import WebApp from "@twa-dev/sdk";
 
 const VisibilityTracker = () => {
   const botUsername = "weekendPac_bot";
-
   const handleClick = () => {
     WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`)
   }
-
-  const [visibility, setVisibility] = useState<string[]>([document.visibilityState]);
-
-  const handleVisibilityChange = () => {
-    setVisibility(prev => [...prev, `${document.visibilityState}${prev.length}`]);
-  };
-
-  useEffect(() => {
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
+  WebApp.onEvent("themeChanged", () => {
+    console.log("themeChanged");
+  })
+  WebApp.onEvent("viewportChanged", () => {
+    console.log("viewportChanged");
+  })
+  WebApp.onEvent("mainButtonClicked", () => {
+    console.log("mainButtonClicked");
+  })
+  WebApp.onEvent("backButtonClicked", () => {
+    console.log("backButtonClicked");
+  })
+  WebApp.onEvent("settingsButtonClicked", () => {
+    console.log("settingsButtonClicked");
+  })
+  WebApp.onEvent("invoiceClosed", () => {
+    console.log("invoiceClosed");
+  })
+  WebApp.onEvent("popupClosed", () => {
+    console.log("popupClosed");
+  })
+  WebApp.onEvent("qrTextReceived", () => {
+    console.log("qrTextReceived");
+  })
+  WebApp.onEvent("clipboardTextReceived", () => {
+    console.log("clipboardTextReceived");
+  })
+  WebApp.onEvent("writeAccessRequested", () => {
+    console.log("writeAccessRequested");
+  })
+  WebApp.onEvent("contactRequested", () => {
+    console.log("contactRequested");
+  })
 
   return (
     <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-      <ul>
-        {visibility.map(item => <li>{item}</li>)}
-      </ul>
       <button onClick={handleClick}>Click me</button>
     </div>
   );
