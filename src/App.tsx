@@ -2,13 +2,8 @@ import { useState, useEffect } from 'react';
 import WebApp from '@twa-dev/sdk';
 
 const VisibilityTracker = () => {
-  const getVisibility = (data: boolean) => {
-    if (data) {
-      return "visible"
-    }
-    return "hidden"
-  }
-  const [isVisible, setIsVisible] = useState<string[]>([getVisibility(!document.hidden)]);
+
+  const [isVisible, setIsVisible] = useState(!document.hidden);
   const botUsername = 'weekendPac_bot';
 
   const handleClick = () => {
@@ -17,7 +12,7 @@ const VisibilityTracker = () => {
   };
 
   const handleVisibilityChange = () => {
-    setIsVisible(prev => [...prev, getVisibility(!document.hidden)]);
+    setIsVisible(!document.hidden);
   };
 
   useEffect(() => {
@@ -31,7 +26,7 @@ const VisibilityTracker = () => {
   const startVisibilityCheck = () => {
     const intervalId = setInterval(() => {
       if (!document.hidden) {
-        setIsVisible(prev => [...prev, getVisibility(true)]);
+        setIsVisible(true);
 
         clearInterval(intervalId);
       }
@@ -43,13 +38,11 @@ const VisibilityTracker = () => {
     fetch('https://jsonplaceholder.typicode.com/todos/1')
       .then(response => response.json())
       .then(json => console.log(json))
-
   }, [isVisible])
 
   return (
     <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
       <button onClick={handleClick}>Click me</button>
-      {isVisible?.map(item => <div>{item}</div>)}
     </div>
   );
 };
