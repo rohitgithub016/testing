@@ -3,8 +3,17 @@ import WebApp from '@twa-dev/sdk';
 
 const VisibilityTracker = () => {
 
-  const [isVisible, setIsVisible] = useState(!document.hidden);
+  const getVisibility = (data: boolean) => {
+    if(data){
+        return "hidden"
+    } 
+    return "visible"
+}
+
+  const [isVisible, setIsVisible] = useState([getVisibility(!document.hidden)]);
   const botUsername = 'weekendPac_bot';
+
+  
 
   const handleClick = () => {
     WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`);
@@ -12,7 +21,7 @@ const VisibilityTracker = () => {
   };
 
   const handleVisibilityChange = () => {
-    setIsVisible(!document.hidden);
+    setIsVisible(prev =>  [...prev, getVisibility(!document.hidden)]);
   };
 
   useEffect(() => {
@@ -26,8 +35,7 @@ const VisibilityTracker = () => {
   const startVisibilityCheck = () => {
     const intervalId = setInterval(() => {
       if (!document.hidden) {
-        setIsVisible(true);
-
+        setIsVisible(prev =>  [...prev, getVisibility(true)]);
         clearInterval(intervalId);
       }
     }, 1000); // Check every second
