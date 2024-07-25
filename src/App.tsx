@@ -4,31 +4,26 @@ import WebApp from "@twa-dev/sdk";
 const App = () => {
   const botUsername = "hubz_dev_v2_bot";
 
-  const [display, setDisplay] = useState("");
+  const [display, setDisplay] = useState("none")
 
   const handleClick = () => {
     WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`);
-    // setDisplay("block")
+    setDisplay("block")
   };
 
-  // const handleOverLay = () => {
-  //   setDisplay("none")
-  // };
+  const handleOverLay = () => {
+    setDisplay("none")
+  };
 
-  useEffect(() => {
-    window.addEventListener("focus", () => {
-      console.log(`focused__${new Date()}`);
-      setDisplay("Focused");
-    });
-    window.addEventListener("blur", () => {
-      console.log(`blur__${new Date()}`);
-      setDisplay("BLURED");
-    });
-  }, []);
+  useEffect(()=>{
+    window.addEventListener("focus", ()=>console.log(`focused__${new Date()}`))
+    window.addEventListener("blur", ()=>console.log(`blur__${new Date()}`))
+
+  },[])
 
   return (
     <>
-      {/* <div
+      <div
         id="overlay"
         onClick={handleOverLay}
         style={{
@@ -44,7 +39,7 @@ const App = () => {
           zIndex: 2,
           cursor: "pointer",
         }}
-      ></div> */}
+      ></div>
       <div
         style={{
           display: "flex",
@@ -53,7 +48,7 @@ const App = () => {
           flexDirection: "column",
         }}
       >
-        <h1>{display}</h1>
+        {/* <h1>{vState}</h1> */}
         <button onClick={handleClick}>Add Group</button>
       </div>
     </>
