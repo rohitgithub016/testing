@@ -14,21 +14,27 @@ const App = () => {
     console.log(document?.hasFocus());
   };
 
-  const handleVisibilityChange = () => {
-    if (document.hidden) {
-      console.log(
-        "Mini App is not visible. The Telegram link might be open or the user is away."
-      );
-      setVState((prev) => [...prev, `${prev?.length}___HIDDEN`]);
-    } else {
+
+  const handlePageShow = () => {
+
       setVState((prev) => [...prev, `${prev?.length}___VISIBLE`]);
-    }
+
   };
 
+  const handlePageHide = () => {
+
+      setVState((prev) => [...prev, `${prev?.length}___VISIBLE`]);
+  
+  };
+
+
   useEffect(() => {
-    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("pagehide", handlePageHide);
+    window.addEventListener("pageshow", handlePageShow);
+
     return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("pagehide", handlePageHide);
+      window.removeEventListener("pageshow", handlePageShow);
     };
   }, []);
 
