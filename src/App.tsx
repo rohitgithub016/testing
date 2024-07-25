@@ -7,7 +7,9 @@ const App = () => {
   const [vState, setVState] = useState<string[]>([]);
 
   const handleClick = () => {
+    console.log(document?.hasFocus);
     WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`);
+    console.log(document?.hasFocus);
   };
 
   const handleVisibilityChange = () => {
@@ -27,8 +29,6 @@ const App = () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
-
-  console.log(document.visibilityState);
 
   return (
     <div
