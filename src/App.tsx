@@ -1,80 +1,36 @@
 import { useState, useEffect } from 'react';
 import WebApp from '@twa-dev/sdk';
 
-const VisibilityTracker = () => {
-
-  const getVisibility = (data: boolean) => {
-    if (data) {
-      return "hidden"
-    }
-    return "visible"
-  }
-
-  const [isVisible, setIsVisible] = useState([getVisibility(!document.hidden)]);
-  // const botUsername = 'weekendPac_bot';
+const App = () => {
   const botUsername = "hubz_dev_v2_bot"
 
-
+  const [vState, setVState] = useState<string[]>([])
 
   const handleClick = () => {
     WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`);
-    startVisibilityCheck();
-  };
+  }
 
   const handleVisibilityChange = () => {
-    setIsVisible(prev => [...prev, getVisibility(!document.hidden)]);
+    if (document.visibilityState === 'hidden') {
+      console.log('Mini App is not visible. The Telegram link might be open or the user is away.');
+      setVState((prev) => [...prev, `${prev?.length}___HIDDEN`])
+    } else {
+      setVState((prev) => [...prev, `${prev?.length}___VISIBLE`])
+    }
   };
 
   useEffect(() => {
     document.addEventListener('visibilitychange', handleVisibilityChange);
-
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
-  const startVisibilityCheck = () => {
-    const intervalId = setInterval(() => {
-      if (!document.hidden) {
-        setIsVisible(prev => [...prev, getVisibility(true)]);
-        clearInterval(intervalId);
-      }
-    }, 1000); // Check every second
-  };
+  return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column',  }}>
+    <h1>Hello World</h1>
+    <button onClick={handleClick}>Add Group</button>
+    {vState?.map(s => <div>{s}</div>)}
+  </div>)
+}
 
-  const [todo, setTodo] = useState<string[]>([])
-
-  const options = {
-    method: 'GET',
-    headers: {
-      'accept': 'application/json, text/plain, */*',
-      'accept-language': 'en-US,en;q=0.9',
-      'x-api-key': 'ovIfmVfSIZ2iqiFzuGqrh2mHF6STcqa71DSf9jPJ'
-    }
-  };
-
-  
-
-  useEffect(() => {
-    setTimeout(()=>{
-
-      console.log(new Date().toISOString())
-      fetch(`https://api-dev.hubz.io/api/v0/group?creatorUsername=rohitbhandari016`, options)
-        .then(response => response.json())
-        .then(json => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-expect-error
-           setTodo(json.data.map((group) => group?.groupName))
-        })
-    }, 5000)
-  }, [isVisible])
-
-  return (
-    <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', overflow: 'scroll' }}>
-      <button onClick={handleClick}>Click me</button>
-      {todo?.map(t => <div>{t}</div>)}
-    </div>
-  );
-};
-
-export default VisibilityTracker;
+export default App;
