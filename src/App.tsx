@@ -31,6 +31,7 @@ const App = () => {
   }, []);
 
   console.log(document?.hasFocus());
+  console.log(WebApp?.viewportStableHeight)
 
   return (
     <div
