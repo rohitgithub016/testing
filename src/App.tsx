@@ -30,6 +30,8 @@ const App = () => {
     };
   }, []);
 
+  console.log(document?.hasFocus());
+
   return (
     <div
       style={{
