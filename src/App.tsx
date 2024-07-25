@@ -7,11 +7,7 @@ const App = () => {
   const [vState, setVState] = useState<string[]>([]);
 
   const handleClick = () => {
-    console.log(document?.hasFocus());
-    // WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`);
-    WebApp.openLink(`https://t.me/${botUsername}?startgroup=true`, {try_instant_view: true});
-
-    console.log(document?.hasFocus());
+    WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`);
   };
 
 
@@ -29,17 +25,14 @@ const App = () => {
 
 
   useEffect(() => {
-    window.addEventListener("pagehide", handlePageHide);
-    window.addEventListener("pageshow", handlePageShow);
+    window.addEventListener("blur", handlePageHide);
+    window.addEventListener("focus", handlePageShow);
 
     return () => {
-      window.removeEventListener("pagehide", handlePageHide);
-      window.removeEventListener("pageshow", handlePageShow);
+      window.removeEventListener("blur", handlePageHide);
+      window.removeEventListener("focus", handlePageShow);
     };
   }, []);
-
-  console.log(document?.hasFocus());
-  console.log(WebApp?.viewportStableHeight)
 
   return (
     <div
