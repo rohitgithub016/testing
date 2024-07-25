@@ -11,7 +11,7 @@ const App = () => {
   };
 
   const handleVisibilityChange = () => {
-    if (document.visibilityState === "hidden") {
+    if (document.hidden) {
       console.log(
         "Mini App is not visible. The Telegram link might be open or the user is away."
       );
@@ -28,7 +28,7 @@ const App = () => {
     };
   }, []);
 
-  console.log(document.baseURI);
+  console.log(document.visibilityState);
 
   return (
     <div
