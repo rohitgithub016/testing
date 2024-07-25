@@ -9,7 +9,7 @@ const App = () => {
   const handleClick = () => {
     console.log(document?.hasFocus());
     // WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`);
-    WebApp.openLink(`https://t.me/${botUsername}?startgroup=true`);
+    WebApp.openLink(`https://t.me/${botUsername}?startgroup=true`, {try_instant_view: true});
 
     console.log(document?.hasFocus());
   };
