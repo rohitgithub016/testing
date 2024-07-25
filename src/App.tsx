@@ -16,8 +16,8 @@ const App = () => {
   };
 
   useEffect(()=>{
-    window.addEventListener("focus", ()=>console.log("focused"))
-    window.addEventListener("blur", ()=>console.log("blur"))
+    window.addEventListener("focus", ()=>console.log(`focused__${new Date()}`))
+    window.addEventListener("blur", ()=>console.log(`blur__${new Date()}`))
 
   },[])
 
