@@ -15,6 +15,41 @@ const App = () => {
     console.log("viewPort changed");
   });
 
+  WebApp.onEvent("themeChanged", ()=>{
+    console.log("themeChanged")
+  })
+  WebApp.onEvent("backButtonClicked", ()=>{
+    console.log("backButtonClicked")
+  })
+  WebApp.onEvent("settingsButtonClicked", ()=>{
+    console.log("settingsButtonClicked")
+  })
+
+  WebApp.onEvent("invoiceClosed", ()=>{
+    console.log("invoiceClosed")
+  })
+
+  WebApp.onEvent("popupClosed", ()=>{
+    console.log("popupClosed")
+  })
+
+  WebApp.onEvent("qrTextReceived", ()=>{
+    console.log("qrTextReceived	")
+  })
+
+  WebApp.onEvent("clipboardTextReceived", ()=>{
+    console.log("clipboardTextReceived")
+  })
+
+  WebApp.onEvent("writeAccessRequested", ()=>{
+    console.log("writeAccessRequested")
+  })
+
+  WebApp.onEvent("contactRequested", ()=>{
+    console.log("contactRequested")
+  })
+
+
   return (
     <div
       style={{
