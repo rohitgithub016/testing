@@ -1,66 +1,47 @@
-import WebApp from "@twa-dev/sdk";
+import React, { useState } from 'react';
+import type { CarouselProps, RadioChangeEvent } from 'antd';
+import { Carousel, Radio } from 'antd';
 
-const App = () => {
-  const botUsername = "hubz_dev_v2_bot";
+type DotPosition = CarouselProps['dotPosition'];
 
-  const handleClick = () => {
-    WebApp.openTelegramLink(`https://t.me/${botUsername}?startgroup=true`);
+const contentStyle: React.CSSProperties = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
+
+const App: React.FC = () => {
+  const [dotPosition, setDotPosition] = useState<DotPosition>('top');
+
+  const handlePositionChange = ({ target: { value } }: RadioChangeEvent) => {
+    setDotPosition(value);
   };
 
-  WebApp.onEvent("mainButtonClicked", function () {
-    console.log("Main button clicked");
-  });
-
-  WebApp.onEvent("viewportChanged", () => {
-    console.log("viewPort changed");
-  });
-
-  WebApp.onEvent("themeChanged", ()=>{
-    console.log("themeChanged")
-  })
-  WebApp.onEvent("backButtonClicked", ()=>{
-    console.log("backButtonClicked")
-  })
-  WebApp.onEvent("settingsButtonClicked", ()=>{
-    console.log("settingsButtonClicked")
-  })
-
-  WebApp.onEvent("invoiceClosed", ()=>{
-    console.log("invoiceClosed")
-  })
-
-  WebApp.onEvent("popupClosed", ()=>{
-    console.log("popupClosed")
-  })
-
-  WebApp.onEvent("qrTextReceived", ()=>{
-    console.log("qrTextReceived	")
-  })
-
-  WebApp.onEvent("clipboardTextReceived", ()=>{
-    console.log("clipboardTextReceived")
-  })
-
-  WebApp.onEvent("writeAccessRequested", ()=>{
-    console.log("writeAccessRequested")
-  })
-
-  WebApp.onEvent("contactRequested", ()=>{
-    console.log("contactRequested")
-  })
-
-
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
-      <button onClick={handleClick}>Add Group</button>
-    </div>
+    <>
+      <Radio.Group onChange={handlePositionChange} value={dotPosition} style={{ marginBottom: 8 }}>
+        <Radio.Button value="top">Top</Radio.Button>
+        <Radio.Button value="bottom">Bottom</Radio.Button>
+        <Radio.Button value="left">Left</Radio.Button>
+        <Radio.Button value="right">Right</Radio.Button>
+      </Radio.Group>
+      <Carousel dotPosition={dotPosition}>
+        <div>
+          <h3 style={contentStyle}>1</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>2</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>3</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>4</h3>
+        </div>
+      </Carousel>
+    </>
   );
 };
 
