@@ -1,14 +1,56 @@
-import WebApp from "@twa-dev/sdk";
+import React, { useState } from 'react';
+import { Button, Drawer, Radio, Space } from 'antd';
+import type { DrawerProps, RadioChangeEvent } from 'antd';
 
-const App = () => {
-  const handleClick = () => {
-    WebApp.openLink('https://telegram.org/tos/mini-apps')
-  }
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const [placement, setPlacement] = useState<DrawerProps['placement']>('right');
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onChange = (e: RadioChangeEvent) => {
+    setPlacement(e.target.value);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <div>
-      <a href="https://telegram.org/tos/mini-apps">Link external</a>
-      <button onClick={handleClick}>Telegram</button>
-    </div>
+    <>
+      <Space>
+        <Radio.Group value={placement} onChange={onChange}>
+          <Radio value="top">top</Radio>
+          <Radio value="right">right</Radio>
+          <Radio value="bottom">bottom</Radio>
+          <Radio value="left">left</Radio>
+        </Radio.Group>
+        <Button type="primary" onClick={showDrawer}>
+          Open
+        </Button>
+      </Space>
+      <Drawer
+        title="Drawer with extra actions"
+        placement={placement}
+        width={500}
+        onClose={onClose}
+        open={open}
+        extra={
+          <Space>
+            <Button onClick={onClose}>Cancel</Button>
+            <Button type="primary" onClick={onClose}>
+              OK
+            </Button>
+          </Space>
+        }
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
+    </>
   );
 };
 
