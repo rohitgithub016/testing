@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.ant-drawer-content-wrapper {
+  height: fit-content !important;
+}
+
+.ant-drawer-content {
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+}
+
+.ant-drawer-body {
+  padding: 0 !important;
+}

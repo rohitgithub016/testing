@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Radio, Space } from 'antd';
 import type { DrawerProps, RadioChangeEvent } from 'antd';
+import './App.css'
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -32,19 +33,11 @@ const App: React.FC = () => {
         </Button>
       </Space>
       <Drawer
-        title="Drawer with extra actions"
         placement={placement}
         width={500}
         onClose={onClose}
         open={open}
-        extra={
-          <Space>
-            <Button onClick={onClose}>Cancel</Button>
-            <Button type="primary" onClick={onClose}>
-              OK
-            </Button>
-          </Space>
-        }
+        closable={false}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
