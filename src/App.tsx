@@ -1,48 +1,39 @@
-import React, { useState } from 'react';
-import { Button, Drawer, Radio, Space } from 'antd';
-import type { DrawerProps, RadioChangeEvent } from 'antd';
-import './App.css'
+import React from 'react';
+import { Button, message, Space } from 'antd';
 
 const App: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const [placement, setPlacement] = useState<DrawerProps['placement']>('right');
+  const [messageApi, contextHolder] = message.useMessage();
 
-  const showDrawer = () => {
-    setOpen(true);
+  const success = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'Please enter amount more than 1 ',
+      duration: 10,
+    });
   };
 
-  const onChange = (e: RadioChangeEvent) => {
-    setPlacement(e.target.value);
+  const error = () => {
+    messageApi.open({
+      type: 'error',
+      content: 'This is an error message',
+    });
   };
 
-  const onClose = () => {
-    setOpen(false);
+  const warning = () => {
+    messageApi.open({
+      type: 'warning',
+      content: 'This is a warning message',
+    });
   };
 
   return (
     <>
-      <Space>
-        <Radio.Group value={placement} onChange={onChange}>
-          <Radio value="top">top</Radio>
-          <Radio value="right">right</Radio>
-          <Radio value="bottom">bottom</Radio>
-          <Radio value="left">left</Radio>
-        </Radio.Group>
-        <Button type="primary" onClick={showDrawer}>
-          Open
-        </Button>
+      {contextHolder}
+      <Space style={{height: "100vh"}}>
+        <Button onClick={success}>Success</Button>
+        <Button onClick={error}>Error</Button>
+        <Button onClick={warning}>Warning</Button>
       </Space>
-      <Drawer
-        placement={placement}
-        width={500}
-        onClose={onClose}
-        open={open}
-        closable={false}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Drawer>
     </>
   );
 };
