@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -41,15 +44,22 @@
   color: #888;
 }
 
-.ant-drawer-content-wrapper {
-  height: fit-content !important;
+.ant-message {
+  top: 0 !important
 }
 
-.ant-drawer-content {
-  border-top-left-radius: 8px !important;
-  border-top-right-radius: 8px !important;
+.ant-message-notice-content {
+  width: 100% !important;
+  border-radius: 0 !important;
+  background-color: #FF3141 !important;
+
 }
 
-.ant-drawer-body {
-  padding: 0 !important;
+.ant-message-notice-wrapper {
+  padding: 8px !important;
+}
+
+.ant-message-custom-content {
+  gap: 10px;
+  color: #FFF !important;
 }
