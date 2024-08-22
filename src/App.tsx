@@ -5,6 +5,7 @@ const App: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
   const success = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     messageApi.open({
       type: 'success',
       content: 'Please enter amount more than 1 ',
@@ -13,6 +14,7 @@ const App: React.FC = () => {
   };
 
   const error = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     messageApi.open({
       type: 'error',
       content: 'This is an error message',
@@ -20,6 +22,7 @@ const App: React.FC = () => {
   };
 
   const warning = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     messageApi.open({
       type: 'warning',
       content: 'This is a warning message',
