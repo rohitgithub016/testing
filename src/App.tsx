@@ -20,15 +20,22 @@ const CustomIcon = () => (
 const App: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
+  const key = "success";
+
   const success = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     messageApi.open({
+      key: key,
       type: "success",
       content: "Please enter amount more than 1 ",
       duration: 100,
-      icon: <CustomIcon/>,
+      icon: <CustomIcon />,
       style: {
         marginTop: "0px",
+      },
+      onClick: () => {
+        console.log("hell")
+        messageApi.destroy(key); // Close the message on click
       },
     });
   };
