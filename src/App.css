@@ -2,5 +2,11 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Ensure no overflow from the body */
+  overflow: hidden !important; /* Ensure no overflow from the body */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
