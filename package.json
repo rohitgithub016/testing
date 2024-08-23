@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@tonconnect/ui-react": "^2.0.5",
-    "@twa-dev/sdk": "^7.0.0",
+    "@twa-dev/sdk": "^7.8.0",
     "antd": "^5.19.2",
     "eruda": "^3.2.1",
     "npm": "^10.8.1",
