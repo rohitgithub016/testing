@@ -51,7 +51,8 @@
 .ant-message-notice-content {
   width: 100% !important;
   border-radius: 0 !important;
-  background-color: #FF3141 !important;
+  background-color: #F72D4E !important;
+  opacity: 1;
 
 }
 
