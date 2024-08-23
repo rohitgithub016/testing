@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const App = () => {
   useEffect(() => {
     WebApp?.setHeaderColor("#fff");
-    WebApp
+    WebApp?.disableVerticalSwipes();
   }, []);
   return (
     <div
