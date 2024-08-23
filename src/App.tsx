@@ -4,6 +4,7 @@ import { useEffect } from "react";
 const App = () => {
   useEffect(() => {
     WebApp?.setHeaderColor("#fff");
+    WebApp
   }, []);
   return (
     <div
