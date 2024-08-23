@@ -8,10 +8,12 @@ const App = () => {
   return (
     <div
       style={{
-        height: "80vh",
+        height: "calc(100vh - 20px)", // Adjust height to avoid overflow
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        overflow: "hidden", // Ensure no overflow
+        boxSizing: "border-box", 
       }}
     >
       App
