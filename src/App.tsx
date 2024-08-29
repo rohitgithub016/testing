@@ -5,6 +5,8 @@ const App = () => {
   useEffect(() => {
     WebApp?.setHeaderColor("#fff");
     WebApp?.disableVerticalSwipes();
+    WebApp.themeParams.bg_color = "#ff0000"
+    console.log(WebApp.themeParams)
   }, []);
   return (
     <div
