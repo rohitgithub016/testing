@@ -10,3 +10,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.tg_header .tg_header__back-button {
+  color: #ff0000; /* Attempt to set button color */
+}
