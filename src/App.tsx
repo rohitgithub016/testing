@@ -7,7 +7,7 @@ const App = () => {
     console.log(WebApp?.themeParams?.bg_color)
     console.log(WebApp?.themeParams?.secondary_bg_color);
     console.log(WebApp?.headerColor)
-    WebApp?.setHeaderColor(WebApp?.themeParams?.secondary_bg_color);
+    WebApp?.setHeaderColor("#FF5733");
 
   }, []);
   return (
