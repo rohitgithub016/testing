@@ -3,10 +3,10 @@ import { useEffect } from "react";
 
 const App = () => {
   useEffect(() => {
-    WebApp?.setHeaderColor("#fff");
-    WebApp?.disableVerticalSwipes();
-    WebApp.themeParams.bg_color = "#ff0000"
-    console.log(WebApp.themeParams)
+    WebApp?.setHeaderColor(WebApp?.themeParams?.secondary_bg_color);
+    console.log(WebApp?.themeParams?.bg_color)
+    console.log(WebApp?.themeParams?.secondary_bg_color);
+
   }, []);
   return (
     <div
