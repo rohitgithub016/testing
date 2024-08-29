@@ -3,9 +3,10 @@ import { useEffect } from "react";
 
 const App = () => {
   useEffect(() => {
-    WebApp?.setHeaderColor(WebApp?.themeParams?.bg_color);
+    // WebApp?.setHeaderColor(WebApp?.themeParams?.bg_color);
     console.log(WebApp?.themeParams?.bg_color)
     console.log(WebApp?.themeParams?.secondary_bg_color);
+    console.log(WebApp?.headerColor)
 
   }, []);
   return (
