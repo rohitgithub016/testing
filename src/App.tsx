@@ -1,16 +1,36 @@
-import WebApp from "@twa-dev/sdk";
-import { useEffect } from "react";
-
 const App = () => {
-  useEffect(() => {
-    // WebApp?.setHeaderColor(WebApp?.themeParams?.bg_color);
-    console.log(WebApp?.themeParams)
-    console.log(WebApp?.themeParams?.secondary_bg_color);
-    console.log(WebApp?.headerColor)
+  const inviteUrl = "https://example.com/invite";
 
-    WebApp?.setHeaderColor("#000000");
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Invite Link",
+          text: "Check out this invite link!",
+          url: inviteUrl,
+        })
+        .then(() => {
+          console.log("Thanks for sharing!");
+        })
+        .catch((error) => {
+          console.error("Share failed:", error);
+        });
+    } else {
+      console.log("Web Share API not supported in this browser.");
+      copyToClipboard(inviteUrl);
+    }
+  };
 
-  }, []);
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        console.log("Copied to clipboard!");
+      })
+      .catch((error) => {
+        console.error("Failed to copy:", error);
+      });
+  };
   return (
     <div
       style={{
@@ -21,7 +41,7 @@ const App = () => {
         overflow: "hidden", // Prevent scrollbars
       }}
     >
-      App
+      <button onClick={handleShare}>Share This</button>
     </div>
   );
 };
