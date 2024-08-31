@@ -1,36 +1,18 @@
+import WebApp from "@twa-dev/sdk";
+import { useEffect, useState } from "react";
+import { HexColorPicker } from "react-colorful";
+
 const App = () => {
-  const inviteUrl = "https://example.com/invite";
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator
-        .share({
-          title: "Invite Link",
-          text: "Check out this invite link!",
-          url: inviteUrl,
-        })
-        .then(() => {
-          console.log("Thanks for sharing!");
-        })
-        .catch((error) => {
-          console.error("Share failed:", error);
-        });
-    } else {
-      console.log("Web Share API not supported in this browser.");
-      copyToClipboard(inviteUrl);
-    }
-  };
+  const [color, setColor] = useState("#aabbcc");
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        console.log("Copied to clipboard!");
-      })
-      .catch((error) => {
-        console.error("Failed to copy:", error);
-      });
-  };
+  useEffect(()=>{
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-expect-error
+    WebApp?.setHeaderColor(color);
+  },[color])
+
+  console.log(color);
   return (
     <div
       style={{
@@ -41,7 +23,7 @@ const App = () => {
         overflow: "hidden", // Prevent scrollbars
       }}
     >
-      <button onClick={handleShare}>Share This</button>
+      <HexColorPicker color={color} onChange={setColor} />
     </div>
   );
 };
