@@ -5,7 +5,10 @@ import { useEffect } from "react";
 const App = () => {
 
   useEffect(()=>{
+    console.log(WebApp);
+    console.log(WebApp?.themeParams)
     WebApp.setBackgroundColor("#f4f4f5")
+    WebApp.setHeaderColor("#f4f4f5");
   },[])
 
   return (
