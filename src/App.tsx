@@ -9,6 +9,7 @@ const App = () => {
     console.log(WebApp?.themeParams)
     WebApp.setBackgroundColor("#f4f4f5")
     WebApp.setHeaderColor("#f4f4f5");
+    WebApp.themeParams.text_color = "#FF0000"
   },[])
 
   return (
