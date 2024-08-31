@@ -1,6 +1,12 @@
+import WebApp from "@twa-dev/sdk";
+import { useEffect } from "react";
 
 
 const App = () => {
+
+  useEffect(()=>{
+    WebApp.setBackgroundColor("#f4f4f5")
+  },[])
 
   return (
     <div
