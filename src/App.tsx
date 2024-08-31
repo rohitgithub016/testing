@@ -8,6 +8,7 @@ const App = () => {
     console.log(WebApp);
     console.log(WebApp?.themeParams)
     WebApp?.setHeaderColor(WebApp?.themeParams?.secondary_bg_color);
+    WebApp?.setBackgroundColor(WebApp?.themeParams?.secondary_bg_color);
   },[])
 
   return (
