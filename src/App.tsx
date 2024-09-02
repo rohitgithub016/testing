@@ -1,15 +1,17 @@
 import WebApp from "@twa-dev/sdk";
 import { useEffect } from "react";
 
-
 const App = () => {
-
-  useEffect(()=>{
+  useEffect(() => {
     console.log(WebApp);
-    console.log(WebApp?.themeParams)
+    console.log(WebApp?.themeParams);
     WebApp?.setHeaderColor(WebApp?.themeParams?.secondary_bg_color);
     WebApp?.setBackgroundColor(WebApp?.themeParams?.secondary_bg_color);
-  },[])
+  }, []);
+
+  const handleClick = () => {
+    WebApp.openTelegramLink("https://t.me/+OFHuZeYqSB1jNTE9");
+  };
 
   return (
     <div
@@ -21,7 +23,7 @@ const App = () => {
         overflow: "hidden", // Prevent scrollbars
       }}
     >
-      Hello World
+      <button onClick={handleClick}>Click Me</button>
     </div>
   );
 };
