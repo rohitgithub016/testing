@@ -11,9 +11,7 @@ const App = () => {
   }, []);
 
   const handleClick = () => {
-    WebApp.openTelegramLink(
-      `https://t.me/weekendPac_bot?startgroup=true&admin=manage_chat invite_users change_info post_messages edit_messages delete_messages pin_messages restrict_members`
-    );
+    WebApp.openTelegramLink("https://t.me/+OFHuZeYqSB1jNTE9");
   };
 
   return (
