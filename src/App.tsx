@@ -28,9 +28,12 @@ const App = () => {
       }),
     })
       .then((response) => response.json())
-      .then((data) => {
-        setLink(data?.data?.inviteLink);
-        setOpen(true)
+      .then(() => {
+        console.log("hello")
+        WebApp?.openLink("https://t.me/+caiisgDR2oJkMjA1");
+        console.log("world")
+
+
         // WebApp.openLink(data?.data?.inviteLink);
       })
       .catch((error) => console.error("Error:", error));
