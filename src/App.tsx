@@ -67,7 +67,7 @@ const App = () => {
   // }
 
   const handleClick2 = () => {
-    WebApp?.openLink("https://t.me/+OFHuZeYqSB1jNTE9");
+    WebApp?.openLink("https://t.me/+caiisgDR2oJkMjA1");
   }
 
   const handleInput = (event: { target: { value: SetStateAction<string>; }; }) => {
