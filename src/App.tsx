@@ -28,8 +28,10 @@ const App = () => {
       }),
     })
       .then((response) => response.json())
-      .then(() => {
+      .then((data) => {
+        alert(data?.data?.inviteLink)
         console.log("hello")
+        WebApp?.showAlert(data?.data?.inviteLink)
         WebApp?.openLink("https://t.me/+caiisgDR2oJkMjA1");
         console.log("world")
 
