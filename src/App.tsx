@@ -9,6 +9,7 @@ const App = () => {
   useEffect(()=>{
     if(openLink){
       WebApp?.openTelegramLink(customlink);
+      setOpen(false)
     }
   }, [openLink]);
 
