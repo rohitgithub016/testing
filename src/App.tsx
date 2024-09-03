@@ -34,6 +34,7 @@ const App = () => {
         // WebApp?.openLink("https://t.me/+caiisgDR2oJkMjA1");
         window?.open(data?.data?.inviteLink, "_self")
         console.log("world")
+        WebApp?.close();
 
         // WebApp.openLink(data?.data?.inviteLink);
       })
