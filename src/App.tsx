@@ -1,6 +1,9 @@
 import WebApp from "@twa-dev/sdk";
+import { SetStateAction, useState } from "react";
 
 const App = () => {
+
+  const  [customlink, setLink] = useState('');
 
   const callApi = async () => {
     await fetch("https://api-dev.hubz.io/api/v0/subscriber/payment-success", {
@@ -18,7 +21,7 @@ const App = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        WebApp.openTelegramLink(data?.data?.inviteLink);
+        WebApp.openTelegramLink(customlink ? customlink : data?.data?.inviteLink);
         // WebApp.openLink(data?.data?.inviteLink);
       })
       .catch((error) => console.error("Error:", error));
@@ -36,6 +39,10 @@ const App = () => {
     WebApp?.openLink("https://t.me/+OFHuZeYqSB1jNTE9");
   }
 
+  const handleInput = (event: { target: { value: SetStateAction<string>; }; }) => {
+    setLink(event?.target?.value)
+  }
+
   return (
     <div
       style={{
@@ -44,8 +51,10 @@ const App = () => {
         justifyContent: "center",
         alignItems: "center",
         overflow: "hidden", // Prevent scrollbars
+        flexDirection: 'column'
       }}
     >
+      <input onChange={handleInput}/>
       <button onClick={handleClick}>Click Me</button>
       <button onClick={handleClick1}>Click Me 1</button>
       <button onClick={handleClick2}>Click Me 2</button>
