@@ -29,12 +29,11 @@ const App = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert(data?.data?.inviteLink)
         console.log("hello")
-        WebApp?.showAlert(data?.data?.inviteLink)
-        WebApp?.openLink("https://t.me/+caiisgDR2oJkMjA1");
+        // WebApp?.showAlert(data?.data?.inviteLink)
+        // WebApp?.openLink("https://t.me/+caiisgDR2oJkMjA1");
+        window?.open(data?.data?.inviteLink, "_self")
         console.log("world")
-
 
         // WebApp.openLink(data?.data?.inviteLink);
       })
@@ -94,7 +93,6 @@ const App = () => {
       <button onClick={handleClick}>Click Me</button>
       <button onClick={callApi1}>Click Me 1</button>
       <button onClick={handleClick2}>Click Me 2</button>
-
     </div>
   );
 };
