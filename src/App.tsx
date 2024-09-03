@@ -1,14 +1,6 @@
 import WebApp from "@twa-dev/sdk";
-import { useEffect } from "react";
 
 const App = () => {
-  useEffect(() => {
-    console.log(WebApp);
-    console.log(WebApp?.themeParams);
-    console?.log(WebApp?.initData);
-    WebApp?.setHeaderColor(WebApp?.themeParams?.secondary_bg_color);
-    WebApp?.setBackgroundColor(WebApp?.themeParams?.secondary_bg_color);
-  }, []);
 
   const callApi = async () => {
     await fetch("https://api-dev.hubz.io/api/v0/subscriber/payment-success", {
@@ -20,14 +12,14 @@ const App = () => {
         "x-api-key": "ovIfmVfSIZ2iqiFzuGqrh2mHF6STcqa71DSf9jPJ",
       },
       body: JSON.stringify({
-        subscriptionId: "66d59415beaf2bf54d935f40",
+        subscriptionId: "66d6a021045a39eb97eef588",
         username: "rohitbhandari016",
       }),
     })
       .then((response) => response.json())
       .then((data) => {
         WebApp.openTelegramLink(data?.data?.inviteLink);
-        WebApp.openLink(data?.data?.inviteLink);
+        // WebApp.openLink(data?.data?.inviteLink);
       })
       .catch((error) => console.error("Error:", error));
   };
