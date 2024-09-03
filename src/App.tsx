@@ -27,6 +27,7 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         WebApp.openTelegramLink(data?.data?.inviteLink);
+        WebApp.openLink(data?.data?.inviteLink);
       })
       .catch((error) => console.error("Error:", error));
   };
@@ -36,11 +37,11 @@ const App = () => {
   };
 
   const handleClick1 = () => {
-    WebApp?.openTelegramLink("https://t.me/+s6ixkPb95dg2NDE1");
+    WebApp?.openTelegramLink("https://t.me/+OFHuZeYqSB1jNTE9");
   }
 
   const handleClick2 = () => {
-    WebApp?.openLink("https://t.me/+s6ixkPb95dg2NDE1");
+    WebApp?.openLink("https://t.me/+OFHuZeYqSB1jNTE9");
   }
 
   return (
