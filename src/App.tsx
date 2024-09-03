@@ -35,6 +35,14 @@ const App = () => {
     callApi();
   };
 
+  const handleClick1 = () => {
+    WebApp?.openTelegramLink("https://t.me/+s6ixkPb95dg2NDE1");
+  }
+
+  const handleClick2 = () => {
+    WebApp?.openLink("https://t.me/+s6ixkPb95dg2NDE1");
+  }
+
   return (
     <div
       style={{
@@ -46,6 +54,9 @@ const App = () => {
       }}
     >
       <button onClick={handleClick}>Click Me</button>
+      <button onClick={handleClick1}>Click Me 1</button>
+      <button onClick={handleClick2}>Click Me 2</button>
+
     </div>
   );
 };
