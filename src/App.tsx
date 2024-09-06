@@ -1,5 +1,5 @@
 import WebApp from "@twa-dev/sdk";
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 
 const App = () => {
   useEffect(() => {
