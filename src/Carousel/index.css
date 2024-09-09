@@ -1,0 +1,24 @@
+.slick-dots button {
+    background: black !important;
+}
+
+.slick-active button {
+    background: red !important;
+}
+
+.slick-list {
+    margin: 0 -5px;
+}
+
+.slick-slide>div {
+    padding: 0 5px;
+}
+
+/* the parent */
+/* .slick-list {
+    margin: 0 -27px;
+} */
+
+.slick-dots-bottom {
+    bottom: -20px !important;
+}
