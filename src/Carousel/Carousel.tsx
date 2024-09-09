@@ -32,11 +32,6 @@ const Carousel: React.FC = () => {
           <h3>3</h3>
         </Card>
       </Flex>
-      <Flex>
-        <Card style={contentStyle}>
-          <h3>4</h3>
-        </Card>
-      </Flex>
     </AntdCarousel>
   );
 };
