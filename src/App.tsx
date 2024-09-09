@@ -7,7 +7,7 @@ const App = () => {
     console.log(WebApp?.initData);
   }, []);
   return (
-    <div>
+    <div style={{ background: "#EFEFF4", padding: "20px", height: "100vh" }}>
       <Carousel />
     </div>
   );
