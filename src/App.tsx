@@ -15,7 +15,12 @@ const App = () => {
   }
 
 
-  console.log(WebApp.initDataUnsafe?.chat?.id);
+  console.log(WebApp.initDataUnsafe?.chat);
+  console.log(WebApp.initDataUnsafe);
+  console.log(WebApp?.initData);
+  console.log(WebApp?.initDataUnsafe);
+  
+
 
 
   return (
