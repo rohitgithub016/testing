@@ -15,6 +15,9 @@ const App = () => {
   }
 
 
+  console.log(WebApp.initDataUnsafe?.chat?.id);
+
+
   return (
     <div style={{height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
       <button onClick={handleClick}>Clickme</button>
