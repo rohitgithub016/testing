@@ -8,7 +8,8 @@ import WebApp from "@twa-dev/sdk";
 
 eruda.init();
 
-WebApp.disableVerticalSwipes()
+WebApp.disableVerticalSwipes();
+WebApp.setBackgroundColor("#fff");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
