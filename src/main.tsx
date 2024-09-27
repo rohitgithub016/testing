@@ -9,7 +9,7 @@ import WebApp from "@twa-dev/sdk";
 eruda.init();
 
 WebApp.disableVerticalSwipes();
-WebApp.setBackgroundColor("#fff");
+WebApp.setBackgroundColor("#000");
 WebApp.isVerticalSwipesEnabled = false;
 WebApp.ready();
 

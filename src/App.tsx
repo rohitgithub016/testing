@@ -23,6 +23,7 @@ const App = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          background: '#fff'
         }}
       >
         <button onClick={handleClick}>Clickme</button>
