@@ -24,15 +24,17 @@ const App = () => {
           justifyContent: "center",
           alignItems: "center",
           background: '#fff',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          maxHeight: '80vh',
+          overflow: 'scroll'
         }}
       >
         <button onClick={handleClick}>Clickme</button>
         <button onClick={handleClick1}>Clickme1</button>
         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci, alias aperiam ea id amet sapiente dolorem. Impedit enim veritatis voluptatem.</h1>
-        {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci, alias aperiam ea id amet sapiente dolorem. Impedit enim veritatis voluptatem.</h1> */}
-        {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci</h1>
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci This is the end</h1> */}
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci, alias aperiam ea id amet sapiente dolorem. Impedit enim veritatis voluptatem.</h1>
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci</h1>
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci This is the end</h1>
 
       </div>
       <div

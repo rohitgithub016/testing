@@ -5,7 +5,6 @@
 
 #root {
   padding: 0;
-  overflow: hidden;
 }
 
 *,
@@ -17,6 +16,7 @@
 
 body {
   margin: 0px;
+  overflow: hidden;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
