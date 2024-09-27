@@ -4,8 +4,11 @@ import App from "./App.tsx";
 import "./index.css";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import eruda from "eruda";
+import WebApp from "@twa-dev/sdk";
 
 eruda.init();
+
+WebApp.disableVerticalSwipes()
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
