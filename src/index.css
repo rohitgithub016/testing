@@ -16,7 +16,7 @@
 
 body {
   margin: 0px;
-  overflow: hidden !important;
+  overflow: auto;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
