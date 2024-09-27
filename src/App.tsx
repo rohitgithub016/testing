@@ -1,7 +1,7 @@
 import WebApp from "@twa-dev/sdk";
 
 const App = () => {
-  const handleClick = () => {
+ const handleClick = () => {
     WebApp.openTelegramLink(`https://t.me/undefined?startgroup=true`);
   };
 
@@ -25,7 +25,7 @@ const App = () => {
           alignItems: "center",
           background: '#fff',
           flexDirection: 'column',
-          maxHeight: '80vh',
+          maxHeight: 'calc(100vh - 77px)',
           overflow: 'scroll'
         }}
       >
@@ -38,6 +38,7 @@ const App = () => {
 
       </div>
       <div
+        id="bottom-btn"
         style={{
           position: "fixed",
           bottom: 0,
