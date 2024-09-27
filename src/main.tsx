@@ -10,6 +10,8 @@ eruda.init();
 
 WebApp.disableVerticalSwipes();
 WebApp.setBackgroundColor("#fff");
+WebApp.isVerticalSwipesEnabled = false;
+WebApp.ready();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
