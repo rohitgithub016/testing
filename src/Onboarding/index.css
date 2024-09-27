@@ -1,0 +1,42 @@
+.onboarding-page {
+    height: 100vh;
+    background: #FFF
+}
+
+.onboarding-container {
+    flex-grow: 1
+}
+
+.onboarding-progress-container {
+    padding: 20px 16px;
+}
+
+.onboarding-txt-container {
+    padding: 0px 20px 10px 20px;
+}
+
+.onboarding-step-title {
+    color: #101019;
+    line-height: 40px;
+    letter-spacing: -0.2px;
+}
+
+.onboarding-step-description {
+    color: #525260;
+    letter-spacing: -0.4px
+}
+
+.onboarding-step-description span {
+    font-weight: 500;
+    font-family: "Scandia-Medium"
+}
+
+.onboarding-btn-container {
+    align-self: stretch;
+    padding: 0px 16px 10px 16px;
+    flex-grow: 2;
+}
+
+.onboarding-btn-container div {
+    width: 100%
+}
