@@ -23,11 +23,15 @@ const App = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          background: '#fff'
+          background: '#fff',
+          flexDirection: 'column'
         }}
       >
         <button onClick={handleClick}>Clickme</button>
         <button onClick={handleClick1}>Clickme1</button>
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci, alias aperiam ea id amet sapiente dolorem. Impedit enim veritatis voluptatem.</h1>
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci, alias aperiam ea id amet sapiente dolorem. Impedit enim veritatis voluptatem.</h1>
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam optio sed veritatis perspiciatis voluptatum excepturi aut explicabo adipisci</h1>
       </div>
       <div
         style={{
@@ -37,6 +41,7 @@ const App = () => {
           color: "#fff",
           width: '100%',
           padding: '20px'
+
         }}
       >
         <h1 style={{textAlign: 'center'}}>Hello World</h1>
