@@ -6,12 +6,15 @@ import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import eruda from "eruda";
 import WebApp from "@twa-dev/sdk";
 
-eruda.init();
 
+
+WebApp.expand();
 WebApp.disableVerticalSwipes();
 WebApp.setBackgroundColor("#000");
 WebApp.isVerticalSwipesEnabled = false;
 WebApp.ready();
+
+eruda.init();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
