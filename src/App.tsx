@@ -28,6 +28,8 @@ const App = () => {
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
+        color: 'red',
+        fontSize: '54px'
       }}
     >
       <>{text}</>
