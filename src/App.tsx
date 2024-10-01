@@ -1,13 +1,16 @@
 import WebApp from "@twa-dev/sdk";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [text, setText] = useState("");
   useEffect(()=>{
     window.addEventListener('focus', () => {
       console.log("focus")
+      setText("focus");
     })
     window.addEventListener('blur', () => {
       console.log("blur")
+      setText("blur");
     })
   },[])
   const handleClick = () => {
@@ -27,6 +30,7 @@ const App = () => {
         alignItems: "center",
       }}
     >
+      <>{text}</>
       <button onClick={handleClick}>Open</button>
     </div>
   );
