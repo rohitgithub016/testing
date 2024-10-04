@@ -1,0 +1,44 @@
+.homepage-container {
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+    margin-bottom: 100px;
+}
+
+.homepage-header {
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+}
+
+.homepage-header-wallet {
+    align-items: center;
+    gap: 4px;
+}
+
+.homepage-header-wallet .ant-typography {
+    color: #692DF6
+}
+
+.connect-wallet-btn {
+    border-radius: 8px;
+    background: #692DF6;
+    padding: 8px 18px;
+    border: none
+  }
+  
+  .connect-wallet-btn .txt {
+    color: #fff;
+    line-height: -0.4px;
+  }
+
+  .homepage-header .user-name{
+    line-height: 25px;
+  }
+
+  #creator-wallet {
+    padding: 0px !important;
+    width: fit-content;
+  }

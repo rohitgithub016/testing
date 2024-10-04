@@ -1,0 +1,38 @@
+.slick-dots button {
+    background: #D9D9D9 !important;
+    width: 5.16px !important;
+    height: 5.16px !important;
+    border-radius: 100% !important;
+}
+
+.slick-dots{
+    gap: 4.259px !important;
+}
+
+.slick-dots li {
+    width: 0px !important;
+}
+
+.slick-active button {
+    background: #976AFF !important;
+    width: 5.16px !important;
+    height: 5.16px !important;
+    border-radius: 100% !important;
+}
+
+.slick-list {
+    margin: 0 -5px;
+}
+
+/* .slick-slide>div {
+    padding: 0 5px;
+} */
+
+/* the parent */
+/* .slick-list {
+    margin: 0 -27px;
+} */
+
+.slick-dots-bottom {
+    bottom: -20px !important;
+}

@@ -1,0 +1,65 @@
+.introduction-page {
+    background: #fff;
+    overflow: auto;
+}
+
+.introduction-container {
+    padding: 48px 32px 0px 32px;
+    align-items: flex-start;
+}
+
+.introduction-header {
+    align-items: "flex-start";
+    align-self: "stretch"
+}
+
+.header-description {
+    letter-spacing: 0.4px
+}
+
+.introduction-content {
+    align-items: "flex-start";
+    align-self: "stretch"
+}
+
+.svg-container {
+    padding: 14px 12px 0px 0px;
+}
+
+.introduction-content-outer-container {
+    padding: 4px 12px 4px 0px;
+    align-items: center;
+    flex: 1 0 0;
+}
+
+.introduction-content-inner-container {
+    padding: 12px 0px;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 1 0;
+}
+
+.checkbox-btn-container {
+    flex-shrink: 0;
+    flex: 1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border: none;
+    z-index: 1;
+    background: #fff;
+}
+
+.ant-checkbox-input {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.introduction-btn-container {
+    align-self: "stretch";
+    padding: 20px 0px;
+    width: 100%;
+}

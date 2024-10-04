@@ -1,0 +1,39 @@
+.transaction-list {
+    padding-left: 12px;
+    align-items: center;
+    align-self: stretch;
+}
+
+.transaction-content {
+    flex: 1 0 0;
+}
+
+.transaction-avatar-container {
+    padding-right: 12px;
+    gap: 10px;
+}
+
+.transaction-content .transaction-main {
+    padding: 16px 16px 16px 0px;
+    flex: 1 0 0;
+    border-bottom: 1px solid #EEE;
+}
+
+.value1 {
+    color: #000;
+    letter-spacing: -0.1px;
+    text-align: right;
+}
+
+.value2 {
+    color: #999;
+    text-align: right;
+}
+
+.value1-container {
+    padding: 1px 0px 2px 43px;
+}
+
+.value2-container {
+    padding: 1px 0px 2px 43px;
+}

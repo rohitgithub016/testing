@@ -1,0 +1,11 @@
+.add-chain-link-container {
+    border-radius: 8px;
+    padding: 13px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-chain-link-container .ant-typography {
+    color: #181827;
+    letter-spacing: -0.4px;
+}
