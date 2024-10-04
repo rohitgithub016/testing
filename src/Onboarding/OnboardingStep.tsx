@@ -58,19 +58,18 @@ const OnboardingStep = ({
           </Flex>
         </Flex>
       </Flex>
-      <Flex
-        vertical
-        justify="center"
-        align="center"
-        gap={16}
-        className="onboarding-btn-container"
-        style={{position: 'fixed', bottom: 0, width: '100%'}}
-      >
-        {buttons?.map(({ clickHandler, text, type }, index) => (
-          <div key={index}>
-            <Button clickHandler={clickHandler} text={text} type={type} />
-          </div>
-        ))}
+      <Flex id="onboarding-btn-container" >
+        <Flex
+          style={{ padding: "0px 16px 30px 16px", width: "100%" }}
+          vertical
+          gap={16}
+        >
+          {buttons?.map(({ clickHandler, text, type }, index) => (
+            <div key={index}>
+              <Button clickHandler={clickHandler} text={text} type={type} />
+            </div>
+          ))}
+        </Flex>
       </Flex>
     </Flex>
   );

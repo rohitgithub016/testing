@@ -33,12 +33,15 @@
     font-family: "Scandia-Medium"
 }
 
-.onboarding-btn-container {
-    align-self: stretch;
-    padding: 0px 16px 10px 16px;
-    flex-grow: 2;
+#onboarding-btn-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #EFEFF4;
+    border: none;
+    z-index: 1;
+    background: #fff;
 }
-
 .onboarding-btn-container div {
     width: 100%
 }

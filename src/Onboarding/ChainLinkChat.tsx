@@ -4,7 +4,8 @@ import OnboardingStep from "./OnboardingStep";
 const ChainLinkChat = () => {
   const stepNumber = 3;
   const stepName = "Chainlink a Chat";
-  const stepDescription = "Select your chat type and bring it on-chain.";
+  const stepDescription =
+    "Select your chat type and bring it on-chain elect your chat type and bring it on-chain elect your chat type and bring it on-chain elect your chat type and bring it on-chain elect your chat type and bring it on-chainelect your chat type and bring it on-chain elect your chat type and bring it on-chain.";
   const buttons = [
     {
       text: "Select Chat Type",
@@ -12,10 +13,10 @@ const ChainLinkChat = () => {
       type: "contained",
     },
     {
-        text: "Select Chat Type",
-        clickHandler: () => undefined,
-        type: "outlined",
-      },
+      text: "Select Chat Type",
+      clickHandler: () => undefined,
+      type: "outlined",
+    },
   ];
   return (
     <>
