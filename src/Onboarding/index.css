@@ -1,6 +1,8 @@
 .onboarding-page {
-    height: 100vh;
-    background: #FFF
+    
+    background: #FFF;
+    overflow: auto;
+    
 }
 
 .onboarding-container {

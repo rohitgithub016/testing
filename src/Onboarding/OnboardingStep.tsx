@@ -29,7 +29,7 @@ const OnboardingStep = ({
     }
   };
   return (
-    <Flex vertical className="onboarding-page">
+    <Flex vertical className="onboarding-page" style={{height: 'calc(-168px + 100vh)'}}>
       <Flex vertical style={{ flexGrow: 1 }} gap={48} className="onboarding-container">
         <Flex className="onboarding-progress-container" justify="space-between" gap={10}>
           <ProgressSteps completedPercentage={stepsCompleted()} />
