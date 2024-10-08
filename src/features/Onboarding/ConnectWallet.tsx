@@ -29,6 +29,8 @@ const ConnectWallet = () => {
   const [tonConnectUI] = useTonConnectUI();
 
   const handleClickConnect = () => {
+    navigate(ENABLE_HUBZ_BOT);
+
     tonConnectUI?.disconnect();
     open();
     hasPagebeenRendered.current = true;

@@ -74,6 +74,8 @@ const IntroductionPage = () => {
   };
 
   const handleGetStarted = () => {
+    navigate(CONNECT_WALLET);
+
     if (isTermsAccepted) {
       localStorage.setItem(ACCEPTED_TERMS, "true");
       acceptTerms({ username: userName, acceptedTerms: true });

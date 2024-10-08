@@ -12,9 +12,7 @@ export const Dashboard = React.lazy(
 export const ConnectWallet = React.lazy(
   () => import("src/features/Onboarding/ConnectWallet")
 );
-export const EnableHubzBot = React.lazy(
-  () => import("src/features/Onboarding/EnableHubzBot")
-);
+
 export const ChainLinkChat = React.lazy(
   () => import("src/features/Onboarding/ChainLinkChat")
 );
@@ -24,7 +22,7 @@ export const SelectChatType = React.lazy(
 export const AddInviteDetails = React.lazy(
   () => import("src/Component/Old/AddInviteDetails")
 );
-export const Invite = React.lazy(() => import("src/Component/Old/Invite"));
+
 export const CreateGateKeeper = React.lazy(
   () => import("src/Component/Old/CreateGateKeeper")
 );

@@ -31,9 +31,7 @@ import {
   ConnectWallet,
   CreateGateKeeper,
   Dashboard,
-  EnableHubzBot,
   IntroductionPage,
-  Invite,
   OnboardingSteps,
   Payment,
   SelectChatType,
@@ -44,6 +42,8 @@ import Layout from "src/Component/Layout/Layout";
 import ChangeChatType from "src/features/ChangeChatType/ChangeChatType";
 import SameUserWarning from "src/Component/SmaeUserWarning/SameUserWarning";
 import PaymentSuccess from "src/Component/PaymentSuccess/PaymentSuccess";
+import EnableHubzBot from "src/features/Onboarding/EnableHubzBot";
+import Invite from "src/Component/Old/Invite";
 
 WebApp?.setBackgroundColor("#EFEFF4");
 

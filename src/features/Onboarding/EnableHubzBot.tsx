@@ -78,6 +78,8 @@ const EnableHubzBot = () => {
   };
 
   const handleClick = () => {
+    navigate(CHAINLINK_CHAT);
+
     fetchGroupsDataInInterval();
     if (WebApp?.platform === "ios") {
       WebApp.openTelegramLink(`https://t.me/${bot}?startgroup=true`);
