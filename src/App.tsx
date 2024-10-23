@@ -1,38 +1,35 @@
-import WebApp from "@twa-dev/sdk";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import {
-  ACCEPTED_TERMS,
-  ONBOARDING_COMPLETED,
-} from "src/constants/localStorage";
-import { DASHBOARD, INTRODUCTION, ONBOARDING } from "src/constants/pages";
-import eruda from "eruda";
-import { useDispatch } from "react-redux";
-import { setUserName } from "./appSlice";
-
-eruda?.init();
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(WebApp.initData);
-    dispatch(setUserName(WebApp?.initDataUnsafe?.user?.username as string));
-  }, []);
-  useEffect(() => {
-    const acceptedTerms = localStorage?.getItem(ACCEPTED_TERMS);
-    const onboardingCompleted = localStorage?.getItem(ONBOARDING_COMPLETED);
+  const [count, setCount] = useState(0)
 
-    if (onboardingCompleted === "true") {
-      navigate(DASHBOARD);
-    } else if (acceptedTerms === "true") {
-      navigate(ONBOARDING);
-    } else {
-      navigate(INTRODUCTION);
-    }
-  }, []);
-
-  return <></>;
+  return (
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App
