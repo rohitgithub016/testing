@@ -5,7 +5,7 @@ import './App.css'
 import WebApp from '@twa-dev/sdk'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count] = useState(0)
 
   return (
     <>
@@ -19,7 +19,7 @@ function App() {
       </div>
       <h1>{WebApp?.initDataUnsafe?.user?.username }</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => WebApp?.openTelegramLink("https://t.me/hubz_dev_v2_bot?startapp")}>
           count is {count}
         </button>
         <p>
