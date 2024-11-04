@@ -1,36 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import WebApp from '@twa-dev/sdk'
+import "./style.css";
 
-function App() {
-  const [count] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>{WebApp?.initDataUnsafe?.user?.username }</h1>
-      <div className="card">
-        <button onClick={() => WebApp?.openTelegramLink("https://t.me/hubz_dev_v2_bot?startapp")}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <div className="fix-bottom-button">I am fix at bottom</div>
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <input type="number"></input>
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+      <h2>Start editing to see some magic happen!</h2>
+      <br />
+    </div>
+  );
 }
-
-export default App
