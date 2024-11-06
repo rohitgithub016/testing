@@ -20,7 +20,7 @@ interface ContractDeployDetails {
 }
 
 // Specify gas required for deployment
-export const DEPLOY_GAS = toNano(0.0);
+export const DEPLOY_GAS = toNano(0.05);
 
 // Main application component for deploying the contract
 export default function App() {
