@@ -52,7 +52,7 @@ export default function App() {
     <div>
       <TonConnectButton />
       <button onClick={deployContract}>Deploy Contract</button>
-      <div>{ad}</div>
+      <div style={{maxWidth: '500px', overflow: 'auto', marginTop: '10px'}}>{ad}</div>
     </div>
   );
 }
