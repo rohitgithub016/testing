@@ -19,7 +19,8 @@
     "buffer": "^6.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "ton": "^12.1.5"
+    "ton": "^12.1.5",
+    "vite-plugin-node-polyfills": "^0.22.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
