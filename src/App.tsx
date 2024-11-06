@@ -1,13 +1,14 @@
 import {
   TonConnectButton,
   useTonAddress,
-  useTonConnectUI
+  useTonConnectUI,
 } from "@tonconnect/ui-react";
 import "./style.css";
 import { Address, beginCell, Cell, toNano } from "ton";
 import { ContractDeployer } from "./contract-deployer";
 import BN from "bn.js";
 import minterHex from "./lib/contracts/jetton-minter.compiled.json";
+import { useState } from "react";
 
 interface ContractDeployDetails {
   deployer: Address;
@@ -19,10 +20,11 @@ interface ContractDeployDetails {
 }
 
 // Specify gas required for deployment
-export const DEPLOY_GAS = toNano(0.00);
+export const DEPLOY_GAS = toNano(0.0);
 
 // Main application component for deploying the contract
 export default function App() {
+  const [ad, setAd] = useState("");
   const walletAddress = useTonAddress();
   const [tonConnectUI] = useTonConnectUI();
 
@@ -32,7 +34,7 @@ export default function App() {
     const deployParams: ContractDeployDetails = {
       deployer: ownerAddress,
       value: DEPLOY_GAS,
-      code: Cell.fromBoc(minterHex.hex)[0], 
+      code: Cell.fromBoc(minterHex.hex)[0],
       data: beginCell().storeAddress(ownerAddress).endCell(),
     };
 
@@ -41,6 +43,8 @@ export default function App() {
       tonConnectUI
     );
 
+    setAd(contractAddress.toString());
+
     console.log("Contract deployed at:", contractAddress.toString());
   }
 
@@ -48,6 +52,7 @@ export default function App() {
     <div>
       <TonConnectButton />
       <button onClick={deployContract}>Deploy Contract</button>
+      <div>{ad}</div>
     </div>
   );
 }
