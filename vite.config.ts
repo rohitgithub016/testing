@@ -5,6 +5,12 @@ import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfil
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      // Provide a polyfill for Buffer
+      buffer: 'buffer',
+    },
+  },
   optimizeDeps: {
     esbuildOptions: {
         // Node.js global to browser globalThis
