@@ -49,7 +49,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div style={{display: 'flex', gap: 20, flexDirection: 'column'}}>
       <TonConnectButton />
       <button onClick={deployContract}>Deploy Contract</button>
       <div style={{maxWidth: '500px', overflow: 'auto', marginTop: '10px'}}>{ad}</div>
