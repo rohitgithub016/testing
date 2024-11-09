@@ -41,7 +41,56 @@ export default function App() {
 
     //EQA0nI_V6YmS3D2p5xmX-ncWJofF5xjysnNYGX-dqKASFpZp
 
-    const {proof, entryIndex} =  claim("EQA0nI_V6YmS3D2p5xmX-ncWJofF5xjysnNYGX-dqKASFpZp");
+    // const {proof, entryIndex} =  claim();
+
+    const dataCell = beginCell()
+      .storeAddress(ownerAddress)
+      .storeUint(merkleRoot, 256) // Store 256-bit merkleRoot as BN
+      .storeRef(helperCode) // Add helperCode as a reference
+      .endCell();
+
+
+
+    const deployParams: ContractDeployDetails = {
+      deployer: ownerAddress,
+      value: DEPLOY_GAS,
+      code: Cell.fromBoc(minterHex.hex)[0],
+      data: dataCell,
+    };
+
+    const contractAddress = await new ContractDeployer().deployContract(
+      deployParams,
+      tonConnectUI
+    );
+
+    console.log(contractAddress?.toString())
+
+    // console.log(contractAddress)
+
+    setAd(contractAddress.toString());
+
+
+    // console.log("Contract deployed at:", contractAddress.toString());
+
+    // try {
+    // const d =  await claim("EQD8FH1II2BfyAFWRFI72pnBV7uDAfWBWmI7ja7uYPxryNuz");
+   
+    // } catch (e) {
+    //   console.log(e);
+    // }
+  }
+
+  
+  async function deployContract2() {
+    const ownerAddress = Address.parse(walletAddress);
+
+
+    // const merkleRoot =  BigInt(80785058436687609564007501320241228114376519516116650305413464446587479972467n)
+    // const helperCode = Cell.fromBoc(helperHex.hex)[0];
+
+    //EQA0nI_V6YmS3D2p5xmX-ncWJofF5xjysnNYGX-dqKASFpZp
+
+    const {proof, entryIndex} =  claim();
 
     const dataCell = beginCell()
     .storeBit(false)
@@ -85,6 +134,7 @@ export default function App() {
     <div style={{ display: "flex", gap: 20, flexDirection: "column" }}>
       <TonConnectButton />
       <button onClick={deployContract}>Deploy Contract</button>
+      <button onClick={deployContract2}>Deploy Claim Contract</button>
       <div style={{ maxWidth: "500px", overflow: "auto", marginTop: "10px" }}>
         {ad}
       </div>

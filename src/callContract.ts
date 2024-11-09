@@ -1,43 +1,44 @@
 import { beginCell } from "ton";
 import claim from "./claim";
 import { Address, Cell } from "ton";
-import { makeGetCall } from "./makeGetCall";
-import { getClient } from "./getClient";
 
-const callContract = async(tonConnectUI) => {
+const callContract = async (tonConnectUI) => {
+  // Assuming claim returns proof1
+  const { proof1 } = claim();
 
-  // const tc = await getClient();
-    const { proof1 } = claim("EQA0nI_V6YmS3D2p5xmX-ncWJofF5xjysnNYGX-dqKASFpZp");
-  // console.log(proof1)
+  const queryId = 0; // Replace with the actual query ID
+  const proof = proof1; // Replace with the actual proof
 
-  // const ownerJWalletAddr = await makeGetCall(
-  //   Address.parse("EQBsjE4yiAFs7l8E6CPk2ngc5D4NHUkmD4-fzdsQnwVrpaSO"),
-  //   "sendClaim",
-  //   [beginCell().storeUint(0, 64).storeRef(proof1).endCell()],
-  //   ([addr]) => (addr as Cell).beginParse().readAddress()!,
-  //   tc
-  // );
-  // console.log(ownerJWalletAddr)
+  // Clone proof for transaction
+  const clonedProof = Cell.fromBoc(proof.toBoc())[0];
 
-      const queryId = 0n ; //replace
-      const proof = proof1 ; //replace
+  // Create the payload for the contract call
+  const payloadCell = beginCell()
+    .storeUint(queryId, 64)
+    .storeRef(clonedProof)
+    .endCell();
 
-      const payloadCell = beginCell()
-        .storeUint(0, 64)
-        .storeRef(proof)
-        .endCell();
+  const payloadBase64 = payloadCell.toBoc().toString('base64');
 
-      const payloadBase64 = payloadCell.toBoc().toString('base64');
+  // Define the transaction object as per documentation format
+  const transaction = {
+    validUntil: Date.now() + 5 * 60 * 1000, // Valid for 5 minutes
+    messages: [
+      {
+        address: 'EQBsjE4yiAFs7l8E6CPk2ngc5D4NHUkmD4-fzdsQnwVrpaSO', // Claim contract address
+        amount: '10000000', // 10 TON in nanotons
+        payload: payloadBase64, // Add the payload here
+      },
+    ],
+  };
 
-      const transaction = {
-        to: 'EQA0nI_V6YmS3D2p5xmX-ncWJofF5xjysnNYGX-dqKASFpZp', //claim contract address 
-        value: '1000000000',
-        payload: payloadBase64,
-      };
-
-      const result = await tonConnectUI.sendTransaction(transaction);
-
-      console.log(result);
+  // Sending the transaction through TonConnectUI
+  try {
+    const result = await tonConnectUI.sendTransaction(transaction);
+    console.log("Transaction result:", result);
+  } catch (err) {
+    console.log("Error sending transaction:", err);
+  }
 };
 
-export default callContract
+export default callContract;
