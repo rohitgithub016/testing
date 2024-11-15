@@ -11,7 +11,9 @@ import {
   toNano,
   Cell,
   StateInit,
-  contractAddress
+  contractAddress,
+  Contract,
+  TonClient,
 } from "ton";
 import BN from "bn.js";
 import { useEffect, useState } from "react";
@@ -164,52 +166,82 @@ export default function App() {
         return;
       }
   
-      // Replace with the actual airdrop contract address and proofHash provided as a string
-      const airdropAddress = Address.parse("kQApuzSuxmSdsW437H6Em0nzMV8YRESMd6MJZQyxNEpZh9FR"); // Example address
-      const proofHash = "6b9b37ee911e6fe5b6afe38c892cc05795c5d92a73cd15b5fc577a6671b6295c"; // Provided proofHash as hex string
+      // Replace with the actual airdrop contract address and proofHash
+      const airdropAddress = Address.parse("kQApuzSuxmSdsW437H6Em0nzMV8YRESMd6MJZQyxNEpZh9FR");
+      const proofHash = "6b9b37ee911e6fe5b6afe38c892cc05795c5d92a73cd15b5fc577a6671b6295c";
       const entryIndex = 0n; // Replace with the actual index if needed
+      const proofHex = "te6cckEBAgEAUAAJRgPNMHFeIjQMuIpWnbFtXEH/by8jSM18SEsYux+Da56W+AAAAQBP0AgAqB9VooShG5uT0DjM959UbniOu1KXt9D2eMA7xQuxThKO5rKAEFmYQUM=";
   
-      const codeCell = Cell.fromBoc(Buffer.from('b5ee9c7241020b01000151000114ff00f4a413f4bcf2c80b0102016203020033a0df8dda89a1f48003f0c3a7fe03f0c5a861f0c7f083f085f0870202cc09040201480605007747020f84682100f8a7ea5c8cb1fcb3f5003fa0223cf165003cf16cb008208989680fa02cb00c9718018c8cb05f841cf1670fa02cb6accc98040fb008020120080700173e4020c27232c2b2fff27420002f1c3232c03e0a33c584b2fff2fff27e10ddb232c13333326001b5db611106ba4e0b048adf0698f80fc32699f80fc3300e83a6b90fd20187c32f6a2687d2000fc30e9ff80fc316a187c31fc224108308652365d470f7c20eb8580e0007971617d20187c30fc21fc21647c20e78b65ffe664f6aa718740a009cf844821043c7d5c9ba8e3cd4d3ff3021d739f2aad30701c003f2abf84201d3ff59baf2acd43052108307f40e6fa1f2adf84503f90058f008f00912c705f2e2bffa40fa0030f00a9530840ff2f0e2a6b76e5a', "hex"))[0];
-
-
-      // Construct the stateInit for claim contract
+      // Code cell for deployment
+      const codeCell = Cell.fromBoc(
+        Buffer.from(
+          "b5ee9c7241020b01000151000114ff00f4a413f4bcf2c80b0102016203020033a0df8dda89a1f48003f0c3a7fe03f0c5a861f0c7f083f085f0870202cc09040201480605007747020f84682100f8a7ea5c8cb1fcb3f5003fa0223cf165003cf16cb008208989680fa02cb00c9718018c8cb05f841cf1670fa02cb6accc98040fb008020120080700173e4020c27232c2b2fff27420002f1c3232c03e0a33c584b2fff2fff27e10ddb232c13333326001b5db611106ba4e0b048adf0698f80fc32699f80fc3300e83a6b90fd20187c32f6a2687d2000fc30e9ff80fc316a187c31fc224108308652365d470f7c20eb8580e0007971617d20187c30fc21fc21647c20e78b65ffe664f6aa718740a009cf844821043c7d5c9ba8e3cd4d3ff3021d739f2aad30701c003f2abf84201d3ff59baf2acd43052108307f40e6fa1f2adf84503f90058f008f00912c705f2e2bffa40fa0030f00a9530840ff2f0e2a6b76e5a",
+          "hex"
+        )
+      )[0];
+  
+      // Construct the data cell for deployment
       const dataCell = beginCell()
-        .storeBit(false) // Indicates that the address is not "anycast"
-        .storeAddress(airdropAddress) // Airdrop contract address
-        .storeBuffer(Buffer.from(proofHash, 'hex')) // Provided proofHash
-        .storeUint(new BN(entryIndex.toString()), 256) // Entry index for the claim
+        .storeBit(false)
+        .storeAddress(airdropAddress)
+        .storeBuffer(Buffer.from(proofHash, "hex"))
+        .storeUint(new BN(entryIndex.toString()), 256)
         .endCell();
-
+  
       const stateInitCell = new Cell();
       new StateInit({ data: dataCell, code: codeCell }).writeTo(stateInitCell);
   
       const address = contractAddress({ workchain: 0, initialCode: codeCell, initialData: dataCell });
-      console.log("Cliam Contract address: ", address.toString());
-      setAddress(address.toString());
+      console.log("Claim Contract Address:", address.toString());
   
-      // Transaction configuration for the claim request
+      // Deploy the contract using TonConnectUI
       const transaction = {
-        network: CHAIN.TESTNET, // Specify testnet network
-        validUntil: Math.floor(Date.now() / 1000) + 300, // Expire after 5 minutes
+        network: CHAIN.TESTNET,
+        validUntil: Math.floor(Date.now() / 1000) + 300,
         messages: [
           {
-            address: address.toString(), // Claim contract address
-            amount: toNano(0.05).toString(10), // Set appropriate gas value
-            stateInit: stateInitCell.toBoc({ idx: false }).toString("base64"), // StateInit for claim initialization
+            address: address.toString(),
+            amount: toNano(0.05).toString(10),
+            stateInit: stateInitCell.toBoc({ idx: false }).toString("base64"),
             bounce: false,
           },
         ],
       };
   
-      // Send claim transaction using TonConnectUI
+      console.log("Deploying the contract...");
       await tonConnectUI.sendTransaction(transaction);
-      console.log("Claim transaction sent!");
+      console.log("Contract deployed successfully!");
+  
+      // Prepare to send an external message
+      const proofCell = Cell.fromBoc(Buffer.from(proofHex, "base64"))[0];
+      const messageBody = beginCell()
+        .storeUint(new BN(entryIndex.toString()), 64) // Entry index
+        .storeRef(proofCell) // Reference to proof cell
+        .endCell();
+
+
+      const endpoint = `https://testnet.toncenter.com/api/v2/jsonRPC?api_key=4926d7f8f10dbe6bfecf6820d28b04ea6e90dfa12331603b93d14468bf7cb64e`;
+      
+      const client = new TonClient({
+          endpoint: 'https://testnet.toncenter.com/api/v2/jsonRPC',
+          apiKey: '4926d7f8f10dbe6bfecf6820d28b04ea6e90dfa12331603b93d14468bf7cb64e',
+      });
+
+
+      // Define the contract
+      const contract : Contract= {
+          address : Address.parse("0:74753f39cc160905953a26636f9100dce2e280edc379da29f111e4b000ced8c7"),
+          init: null // Optional: Provide init code if the contract is not deployed
+      };
+
+      // Send the external message
+      await client.sendExternalMessage(contract, messageBody);
     } catch (error) {
+      // debugger
       console.error("Error during claim:", error);
-      alert("Failed to claim airdrop.");
+      alert("Failed to claim tokens.");
     }
   }
-  
   
   async function onchainTestScript() {
     try {
